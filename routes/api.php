@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
-Route::get('/test', fn() => 'OK');
+// Route::get('/test', fn() => 'OK');
 
-Route::apiResource('post', PostController::class);
+// Route::apiResource('post', PostController::class);
 
 Route::get('/post', [PostController::class, 'index']);
 Route::post('/post', [PostController::class, 'store']);
