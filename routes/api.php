@@ -9,6 +9,11 @@ use App\Http\Controllers\PostController;
 
 // Route::apiResource('post', PostController::class);
 
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
 Route::get('/post', [PostController::class, 'index']);
 Route::post('/post', [PostController::class, 'store']);
 Route::get('/post/{id}', [PostController::class, 'show']);
