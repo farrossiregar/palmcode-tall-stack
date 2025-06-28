@@ -1,4 +1,4 @@
-name: Deploy TALL Stack Palm Code
+name: Deploy TALL Stack Palm Code Github Action
 
 on:
   push:
