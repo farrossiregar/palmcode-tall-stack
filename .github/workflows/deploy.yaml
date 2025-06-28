@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      VM_USER: ${{ secrets.VM_USER }}
+      VM_HOST: ${{ secrets.VM_HOST }}
+      APP_DIR: ${{ secrets.APP_DIR }}
 
     steps:
       - name: Checkout repo
@@ -22,8 +26,8 @@ jobs:
 
       - name: Deploy to GCP VM
         run: |
-          ssh ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} << 'EOF'
-            cd ${{ secrets.APP_DIR }}
+          ssh "$VM_USER@$VM_HOST" <<EOF
+            cd "$APP_DIR"
             git pull origin main
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
