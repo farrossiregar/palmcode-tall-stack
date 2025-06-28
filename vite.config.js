@@ -4,8 +4,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     server: {
+        host: '0.0.0.0',
+        port: 5173,
         proxy: {
-        '/api': 'http://localhost', // or 'http://127.0.0.1'
+        '/api': {
+            target: 'http://localhost',
+            changeOrigin: true,
+            secure: false,
+        },
         },
     },
     plugins: [
