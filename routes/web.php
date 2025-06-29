@@ -6,7 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/post', function () {
-    dd('lalala');
-});
+// Route::get('/login', function () {
+//     return 'Login Page';
+// })->name('login');
